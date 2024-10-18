@@ -2,7 +2,7 @@
   "name": "siyuan-graph",
   "author": "DrEgg",
   "url": "https://github.com/SteelDrEgg/siyuan-graph",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "minAppVersion": "3.1.7",
   "backends": [
     "windows",
@@ -24,8 +24,8 @@
     "zh_CN": "思源绘图"
   },
   "description": {
-    "default": "Cloud-first math graphing plugin for SiYuan",
-    "zh_CN": "云端优先的思源数学绘图插件"
+    "default": "Vanilla math plotting plugin for SiYuan",
+    "zh_CN": "原生优先的思源数学绘图插件"
   },
   "readme": {
     "default": "README.md"
