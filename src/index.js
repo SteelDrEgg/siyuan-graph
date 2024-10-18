@@ -76,6 +76,8 @@
     <symbol id="iconSaving" viewBox="0 0 32 32">
 <path d="M20 13.333c0-0.733 0.6-1.333 1.333-1.333s1.333 0.6 1.333 1.333c0 0.733-0.6 1.333-1.333 1.333s-1.333-0.6-1.333-1.333zM10.667 12h6.667v-2.667h-6.667v2.667zM29.333 10v9.293l-3.76 1.253-2.24 7.453h-7.333v-2.667h-2.667v2.667h-7.333c0 0-3.333-11.28-3.333-15.333s3.28-7.333 7.333-7.333h6.667c1.213-1.613 3.147-2.667 5.333-2.667 1.107 0 2 0.893 2 2 0 0.28-0.053 0.533-0.16 0.773-0.187 0.453-0.347 0.973-0.427 1.533l3.027 3.027h2.893zM26.667 12.667h-1.333l-4.667-4.667c0-0.867 0.12-1.72 0.347-2.547-1.293 0.333-2.347 1.293-2.787 2.547h-8.227c-2.573 0-4.667 2.093-4.667 4.667 0 2.507 1.627 8.867 2.68 12.667h2.653v-2.667h8v2.667h2.68l2.067-6.867 3.253-1.093v-4.707z"></path>
 </symbol>`);
+
+            // Add Top Bar icon
             const e = this.addTopBar({
                 icon: "iconSiyuanGraph",
                 title: this.i18n.titleBar,
@@ -86,70 +88,119 @@
                         i.width === 0 && (i = document.querySelector("#barMore").getBoundingClientRect()), i.width === 0 && (i = document.querySelector("#barPlugins").getBoundingClientRect()), this.addMenu(i)
                     }
                 }
-            }), t = document.createElement("template");
-            t.innerHTML = `<div class="toolbar__item ariaLabel" aria-label="Remove plugin-sample Data">
-    <svg>
-        <use xlink:href="#iconTrashcan"></use>
-    </svg>
-</div>`, t.content.firstElementChild.addEventListener("click", () => {
-                (0, o.confirm)("\u26A0\uFE0F", this.i18n.confirmRemove.replace("${name}", this.name), () => {
-                    this.removeData(a).then(() => {
-                        this.data[a] = {readonlyText: "Readonly"}, (0, o.showMessage)(`[${this.name}]: ${this.i18n.removedData}`)
-                    })
-                })
-            }), this.addStatusBar({element: t.content.firstElementChild}), this.customTab = this.addTab({
-                type: r,
-                init() {
-                    this.element.innerHTML = `<div class="plugin-sample__custom-tab">${this.data.text}</div>`
-                },
-                beforeDestroy() {
-                    console.log("before destroy tab:", r)
-                },
-                destroy() {
-                    console.log("destroy tab:", r)
-                }
-            }), this.addCommand({
+            })
+
+            // Add bottom right icon
+//             const t = document.createElement("template");
+//             t.innerHTML = `<div class="toolbar__item ariaLabel" aria-label="Remove plugin-sample Data">
+//     <svg>
+//         <use xlink:href="#iconTrashcan"></use>
+//     </svg>
+// </div>`;
+//             t.content.firstElementChild.addEventListener("click", () => {
+//                 (0, o.confirm)("\u26A0\uFE0F", this.i18n.confirmRemove.replace("${name}", this.name), () => {
+//                     this.removeData(a).then(() => {
+//                         this.data[a] = {readonlyText: "Readonly"}, (0, o.showMessage)(`[${this.name}]: ${this.i18n.removedData}`)
+//                     })
+//                 })
+//             });
+//             this.addStatusBar({element: t.content.firstElementChild});
+
+            // Add a tab (page)
+            // this.customTab = this.addTab({
+            //     type: r,
+            //     init() {
+            //         this.element.innerHTML = `<div class="plugin-sample__custom-tab">${this.data.text}</div>`
+            //     },
+            //     beforeDestroy() {
+            //         console.log("before destroy tab:", r)
+            //     },
+            //     destroy() {
+            //         console.log("destroy tab:", r)
+            //     }
+            // })
+
+            // Add a shortcut
+            this.addCommand({
                 langKey: this.i18n.newGraph, hotkey: "", callback: () => {
                     this.showDialog()
                 }
             });
-            const l = document.createElement("textarea");
-            this.setting = new o.Setting({
-                confirmCallback: () => {
-                    this.saveData(a, {readonlyText: l.value})
-                }
-            }), this.setting.addItem({
-                title: "Readonly text",
-                direction: "row",
-                description: "Open plugin url in browser",
-                createActionElement: () => (l.className = "b3-text-field fn__block", l.placeholder = "Readonly text in the menu", l.value = this.data[a].readonlyText, l)
-            });
-            const d = document.createElement("button");
-            d.className = "b3-button b3-button--outline fn__flex-center fn__size200", d.textContent = "Open", d.addEventListener("click", () => {
-                window.open("https://github.com/siyuan-note/plugin-sample")
-            }), this.setting.addItem({
-                title: "Open plugin url",
-                description: "Open plugin url in browser",
-                actionElement: d
-            }), this.protyleSlash = [{
-                filter: ["insert emoji \u{1F60A}", "\u63D2\u5165\u8868\u60C5 \u{1F60A}", "crbqwx"],
-                html: `<div class="b3-list-item__first"><span class="b3-list-item__text">${this.i18n.insertEmoji}</span><span class="b3-list-item__meta">\u{1F60A}</span></div>`,
-                id: "insertEmoji",
-                callback(i) {
-                    i.insert("\u{1F60A}")
-                }
-            }], this.protyleOptions = {
-                toolbar: ["block-ref", "a", "|", "text", "strong", "em", "u", "s", "mark", "sup", "sub", "clear", "|", "code", "kbd", "tag", "inline-math", "inline-memo", "|", {
-                    name: "insert-smail-emoji",
-                    icon: "iconEmoji",
-                    hotkey: "\u21E7\u2318I",
-                    tipPosition: "n",
-                    tip: this.i18n.insertEmoji,
-                    click(i) {
-                        i.insert("\u{1F60A}")
-                    }
-                }]
-            }, console.log(this.i18n.helloPlugin)
+
+
+            /*******************************
+             This chunk defines Settings
+             ********************************
+
+             // Register Settings
+             this.setting = new o.Setting({
+             confirmCallback: () => {
+             this.saveData(a, {readonlyText: l.value})
+             }
+             })
+             // Define a textarea then add to Settings
+             const l = document.createElement("textarea");
+             this.setting.addItem({
+             title: "Readonly text",
+             direction: "row",
+             description: "Open plugin url in browser",
+             createActionElement: () => (l.className = "b3-text-field fn__block", l.placeholder = "Readonly text in the menu", l.value = this.data[a].readonlyText, l)
+             });
+             // Register a button in Settings
+             const d = document.createElement("button");
+             d.className = "b3-button b3-button--outline fn__flex-center fn__size200", d.textContent = "Open", d.addEventListener("click", () => {
+             window.open("https://github.com/siyuan-note/plugin-sample")
+             })
+             this.setting.addItem({
+             title: "Open plugin url",
+             description: "Open plugin url in browser",
+             actionElement: d
+             })
+             */
+
+            // Add slash menu
+            // this.protyleSlash = [{
+            //     filter: ["graph", "chart", "math"],
+            //     html: `<div class="b3-list-item__first"><span class="b3-list-item__text">${this.i18n.insertEmoji}</span><span class="b3-list-item__meta">SiYuan-Graph</span></div>`,
+            //     id: "siyuanGraphSlash",
+            //     callback(i) {
+            // i.insert("\u{1F60A}")
+            // o.fetchPost("/api/system/currentTime", {}, (response) => {
+            //     i.insert(new Date(response.data).toString());
+            // });
+            // i.insert(`<!--<p>wdferwstg</p>-->`)
+            // const selection = window.getSelection();
+            // const focusNode = selection?.focusNode;
+            // console.log(selection)
+            // const Query = n.QueryClosetElement?.[typeName];
+            // if (Query) {
+            //     const blockId = Query(ele, filterType);
+            //     if (!blockId) {
+            //         showMessage(`Failed, can't find block`, 5000, 'error');
+            //     } else {
+            //         showMessage(blockId);
+            //     }
+            // }
+            // protyle.insert(window.Lute.Caret, false, false);
+            // }
+            // }]
+
+            // Add option to input toolbar
+            // this.protyleOptions = {
+            //     toolbar: ["block-ref", "a", "|", "text", "strong", "em", "u", "s", "mark", "sup", "sub", "clear", "|", "code", "kbd", "tag", "inline-math", "inline-memo", "|", {
+            //         name: "insert-smail-emoji",
+            //         icon: "iconEmoji",
+            //         hotkey: "\u21E7\u2318I",
+            //         tipPosition: "n",
+            //         tip: this.i18n.insertEmoji,
+            //         click(i) {
+            //             // i.insert("\u{1F60A}")
+            //             fetchPost("/api/system/currentTime", {}, (response) => {
+            //                 dialog.element.querySelector("#time").innerHTML = new Date(response.data).toString();
+            //             });
+            //         }
+            //     }]
+            // }
         }
 
         blockIconEvent({detail: n}) {
@@ -215,9 +266,19 @@
             <div class="fn__hr"></div>
                 ${this.i18n.generateCode}
         </button>
-    <textarea style="width: 100%; height: 8rem;margin-top: 0.5rem" class="b3-text-field fn__block" id="siyuanGraphGeneratedCode" placeholder="¯\_(ツ)_/¯"></textarea>
-</div>`, width: this.isMobile ? "92vw" : "560px", height: "540px"
+    <textarea style="width: 100%; height: 8rem;margin-top: 0.5rem" class="b3-text-field fn__block" id="siyuanGraphGeneratedCode" placeholder="¯\\_(ツ)_/¯"></textarea>
+<div style="width: 100%;height:30%;margin-top: 1rem;">
+    <div id="siyuanGraphDialogPreview" style="width: 100%; height:100%"></div>
+</div>
+</div>
+`, width: this.isMobile ? "92vw" : "560px", height: "80%"
             });
+
+
+            siyuanGraphDialogPreviewDOM = n.element.querySelector('#siyuanGraphDialogPreview');
+            siyuanGraphDialogPreviewECharts = echarts.init(siyuanGraphDialogPreviewDOM);
+            // myChart.setOption(option);
+
             siyuanGraphN = n;
             siyuanGraphInstance = this;
             if (siyuanGraphFunctionData.length > 0) { // If data are not rendered
@@ -262,6 +323,9 @@ let siyuanGraphFunctionDefault = {
 
 var siyuanGraphGlobalSettings = [];
 
+var siyuanGraphDialogPreviewDOM = undefined;
+var siyuanGraphDialogPreviewECharts = undefined;
+
 function siyuanGraphRenderFunctions() {
     siyuanGraphN.element.querySelector("#siyuanGraphFunctionsDOM").innerHTML = "";
     for (let i = 0; i < siyuanGraphFunctionData.length; i++) {
@@ -278,11 +342,11 @@ function siyuanGraphRenderFunctions() {
             <input id="siyuanGraphFunc${i}_ceiling" style="display: inline-block; width: 3rem;float: right" class="b3-text-field" placeholder="5" value="${siyuanGraphFunctionData[i].xCeiling}">
         </div>
         <div style="margin-top: 1.3rem">
-            <div style="display: inline-block; position: static" class="b3-label__text">Step</div>
+            <div style="display: inline-block; position: static" class="b3-label__text">${siyuanGraphInstance.i18n.step}</div>
             <input id="siyuanGraphFunc${i}_step" style="display: inline-block; width: 70%;float: right" class="b3-text-field" placeholder="0.1" value="${siyuanGraphFunctionData[i].step}">
         </div>
         <div style="margin-top: 1.3rem">
-            <div style="display: inline-block; position: static" class="b3-label__text">Color</div>
+            <div style="display: inline-block; position: static" class="b3-label__text">${siyuanGraphInstance.i18n.color}</div>
             <input id="siyuanGraphFunc${i}_color" style="display: inline-block; width: 70%;float: right" class="b3-text-field" placeholder="random" value="${siyuanGraphFunctionData[i].color}">
         </div>
     </div>
@@ -342,34 +406,29 @@ function siyuanGraphUpdateGlobalSettings() {
 function siyuanGraphGenerateCode() {
     siyuanGraphUpdateFunction()
     siyuanGraphUpdateGlobalSettings()
-    // for (let oi = 0; oi < siyuanGraphFunctionData.length; oi++) {
-    //     // siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = siyuanGraphFunctionData[oi].code
-    //     // siyuanGraphGenerateData(new Function("x", `return ${code};`), xFloor, xCeiling, step, color)
-    //     let equa = new Function("x", `return ${siyuanGraphFunctionData[oi].code};`)
-    //     let data = [];
-    //     for (let i = siyuanGraphFunctionData[oi].xFloor; i <= siyuanGraphFunctionData[oi].xCeiling; i += siyuanGraphFunctionData[oi].step) {
-    //         let y = equa(i);
-    //         if (y >= siyuanGraphGlobalSettings.yFloor && y <= siyuanGraphGlobalSettings.yCeiling) {
-    //             data.push([i, y]);
-    //         }
-    //         // siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = JSON.stringify(data)
-    //         // siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value += data.length
-    //         siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = `i:${i},xfloor:${siyuanGraphFunctionData[oi].xFloor},xceiling:${siyuanGraphFunctionData[oi].xCeiling},step:${siyuanGraphFunctionData[oi].step}`
-    //         await new Promise(r => setTimeout(r, 500));
-    //         // break
-    //     }
-    //     siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = JSON.stringify(data)
-    // }
+    let series = siyuanGraphFunctionData.map(({code, xFloor, xCeiling, step, color}, index) => {
+        try {
+            return {
+                name: `func${index}`,
+                type: 'line',
+                smooth: true,
+                color: color,
+                showSymbol: siyuanGraphGlobalSettings.showSymbol,
+                data: siyuanGraphGenerateData(new Function("x", `return ${code};`), xFloor, xCeiling, step, color)
+            };
+        } catch (error) {
+            alert(`${siyuanGraphInstance.i18n.failedPlottingFunction}: Func ${index}\n${siyuanGraphInstance.i18n.checkFunctionSyntax}`);
+            return {
+                name: `func${index}`,
+                type: 'line',
+                smooth: true,
+                color: color,
+                showSymbol: siyuanGraphGlobalSettings.showSymbol,
+                data: []
+            };
+        }
+    });
 
-    let series = siyuanGraphFunctionData.map(({code, xFloor, xCeiling, step, color}, index) => ({
-        name: `func${index}`,
-        type: 'line',
-        smooth: true,
-        color: color,
-        showSymbol: siyuanGraphGlobalSettings.showSymbol,
-        data: siyuanGraphGenerateData(new Function("x", `return ${code};`), xFloor, xCeiling, step, color)
-    }));
-    // siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = JSON.stringify(series)
 
     option = {
         animation: false,
@@ -384,7 +443,7 @@ function siyuanGraphGenerateCode() {
                 show: true,
                 // margin: 630,
                 verticalAlign: 'top',
-                // inside: true // 标签显示在内侧
+                // inside: true
             },
         },
         yAxis: {
@@ -404,8 +463,8 @@ function siyuanGraphGenerateCode() {
         series: series
     };
     let strinified = JSON.stringify(option);
-    siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = strinified.replace('"siyuanGraphFormatterPlaceholder"','function (params) {let xValue = params[0].value[0];let yValue = params[0].value[1];return \`x: ${xValue}<br/>y: ${yValue}\`;}')
-    // siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = JSON.stringify(siyuanGraphGlobalSettings);
+    siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = strinified.replace('"siyuanGraphFormatterPlaceholder"', 'function (params) {let xValue = params[0].value[0];let yValue = params[0].value[1];return \`x: ${xValue}<br/>y: ${yValue}\`;}')
+    siyuanGraphDialogPreviewEChartsRefresh(option);
 }
 
 function siyuanGraphGenerateData(func, xFloor, xCeiling, step = 1) {
@@ -417,4 +476,20 @@ function siyuanGraphGenerateData(func, xFloor, xCeiling, step = 1) {
         }
     }
     return data;
+}
+
+function siyuanGraphDialogPreviewEChartsRefresh(option) {
+    let tooltip = {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        },
+        formatter: function (params) {
+            let xValue = params[0].value[0];
+            let yValue = params[0].value[1];
+            return `x: ${xValue}<br/>y: ${yValue}`;
+        }
+    }
+    option.tooltip = tooltip
+    siyuanGraphDialogPreviewECharts.setOption(option, true);
 }
