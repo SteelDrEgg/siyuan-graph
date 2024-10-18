@@ -41,7 +41,7 @@ vanilla SiYuan.
 
 ### 1. [Open dialog](#open_dialog)
 
-<img src="doc/en_us/open_dialog.gif" width="500" align="right">
+<img src="doc/en_us/open_dialog.gif" width="400" align="right">
 
 SiYuan Graphing is currently only accessible from Top Bar icon.
 
@@ -50,11 +50,11 @@ To access SiYuan Graphing
 1. find icon <img src="doc/bar_icon.png" width="10"> in Top Bar
 2. Then click New Graph in dropdown menu to open main interface
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### 2. [Compose function](#compose_func)
 
-<img src="doc/en_us/add_func.gif" width="500" align="right">
+<img src="doc/en_us/add_func.gif" width="400" align="right">
 
 Enter equation in card on the top.
 
@@ -68,11 +68,11 @@ SiYuan Graphing will loop from the floor to ceiling of domain by step defined
 
 The equations are implicitly interpreted as `y=equation`
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### 3. [Optimize the graph](#optimize_graph)
 
-<img src="doc/en_us/optimize_params.gif" width="500" align="right">
+<img src="doc/en_us/optimize_params.gif" width="400" align="right">
 
 For complex functions, the default argument might not be optimal
 
@@ -88,11 +88,11 @@ Here are something you should be mindful of
     - Cause: function gorws too big/small that it doesn't fit in the frame
     - Solution: check the graph on graphing calculator and restrict domain and range
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 ### 4. [Insert into note](#insert_note)
 
-<img src="doc/en_us/copyNpaste.gif" width="500" align="right">
+<img src="doc/en_us/copyNpaste.gif" width="400" align="right">
 
 To insert into your note
 1. click generate code to generate ECharts code
@@ -103,7 +103,7 @@ To insert into your note
 6. Paste the code, done
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## [Showcase](#showcase)
 
