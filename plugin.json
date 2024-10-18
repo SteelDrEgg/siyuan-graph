@@ -28,7 +28,8 @@
     "zh_CN": "原生优先的思源数学绘图插件"
   },
   "readme": {
-    "default": "README.md"
+    "default": "README.md",
+    "zh_CN": "README_zh_CN.md"
   },
   "funding": {
     "openCollective": "",
