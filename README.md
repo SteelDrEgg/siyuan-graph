@@ -9,6 +9,7 @@ The plugin take javascript function. Tt will generate ECharts code, copy the cod
 
 ### Roadmap
 - [x] Support for multiple functions
+- [ ] Add preview
 - [ ] Directly add to note
 
 Here are some showcase
