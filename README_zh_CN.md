@@ -69,7 +69,7 @@ SiYuan Graphing 目前只能从顶部栏图标访问。
 
 方程式被隐式解释为 `y=equation`
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### 3. [优化图形](#optimize_graph)
 
@@ -89,7 +89,7 @@ SiYuan Graphing 目前只能从顶部栏图标访问。
   - 原因：函数变得太大/太小，无法完全显示
   - 解决方案：通过图形计算器检查图形并限制定义域和值域
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 ### 4. [插入注释](#insert_note)
 
