@@ -274,10 +274,18 @@
 `, width: this.isMobile ? "92vw" : "560px", height: "80%"
             });
 
-
-            siyuanGraphDialogPreviewDOM = n.element.querySelector('#siyuanGraphDialogPreview');
-            siyuanGraphDialogPreviewECharts = echarts.init(siyuanGraphDialogPreviewDOM);
-            // myChart.setOption(option);
+            try {
+                siyuanGraphDialogPreviewDOM = n.element.querySelector('#siyuanGraphDialogPreview');
+                siyuanGraphDialogPreviewECharts = echarts.init(siyuanGraphDialogPreviewDOM);
+                siyuanGraphEnablePreview = true;
+            } catch (e) {
+                siyuanGraphEnablePreview = false;
+                o.confirm(this.i18n.cautionTitle, this.i18n.cautionNoChartFoundMsg, () => {
+                    o.showMessage(this.i18n.previewDisabled);
+                }, () => {
+                    n.destroy();
+                });
+            }
 
             siyuanGraphN = n;
             siyuanGraphInstance = this;
@@ -325,6 +333,8 @@ var siyuanGraphGlobalSettings = [];
 
 var siyuanGraphDialogPreviewDOM = undefined;
 var siyuanGraphDialogPreviewECharts = undefined;
+
+var siyuanGraphEnablePreview = true;
 
 function siyuanGraphRenderFunctions() {
     siyuanGraphN.element.querySelector("#siyuanGraphFunctionsDOM").innerHTML = "";
@@ -464,7 +474,9 @@ function siyuanGraphGenerateCode() {
     };
     let strinified = JSON.stringify(option);
     siyuanGraphN.element.querySelector(`#siyuanGraphGeneratedCode`).value = strinified.replace('"siyuanGraphFormatterPlaceholder"', 'function (params) {let xValue = params[0].value[0];let yValue = params[0].value[1];return \`x: ${xValue}<br/>y: ${yValue}\`;}')
-    siyuanGraphDialogPreviewEChartsRefresh(option);
+    if (siyuanGraphEnablePreview) {
+        siyuanGraphDialogPreviewEChartsRefresh(option);
+    }
 }
 
 function siyuanGraphGenerateData(func, xFloor, xCeiling, step = 1) {
