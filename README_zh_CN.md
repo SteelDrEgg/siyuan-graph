@@ -2,7 +2,7 @@
 
 ![multiple](doc/en_us/multiple.png)
 
-<h1 align="center">SiYuan Graphing</h1>
+<h1 align="center">思源绘图</h1>
 
 <p align="center">
 <img src="https://img.shields.io/badge/license-MIT-blue?style=plastic"><a> &emsp;
@@ -44,7 +44,7 @@
 
 <img src="doc/en_us/open_dialog.gif" width="400" align="right">
 
-SiYuan Graphing 目前只能从顶部栏图标访问。
+思源绘图 目前只能从顶部栏图标访问。
 
 要访问 思源绘图
 
