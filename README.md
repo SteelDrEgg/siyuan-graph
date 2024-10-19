@@ -109,18 +109,18 @@ To insert into your note
 
 #### [Simple Function](#simple_func)
 <h3 align="center">
-    <a><img src="doc/en_us/simple_line.png" width="400"></a>
+    <a><img src="https://github.com/SteelDrEgg/siyuan-graph/raw/main/doc/en_us/simple_line.png" width="400"></a>
     <a><img src="https://github.com/SteelDrEgg/siyuan-graph/raw/main/doc/en_us/simple_line_settings.png" width="400"></a>
 </h3>
 
 #### [Multiple Functions](#multi_func)
 <h3 align="center">
-    <a><img src="doc/en_us/multiple.png" width="400"></a>
+    <a><img src="https://github.com/SteelDrEgg/siyuan-graph/raw/main/doc/en_us/multiple.png" width="400"></a>
     <a><img src="https://github.com/SteelDrEgg/siyuan-graph/raw/main/doc/en_us/multiple_settings.png" width="400"></a>
 </h3>
 
 #### [Infinite Functions](#infin_func)
 <h3 align="center">
-    <a><img src="doc/en_us/infin.png" width="400"></a>
+    <a><img src="https://github.com/SteelDrEgg/siyuan-graph/raw/main/doc/en_us/infin.png" width="400"></a>
     <a><img src="https://github.com/SteelDrEgg/siyuan-graph/raw/main/doc/en_us/infin_settings.png" width="400"></a>
 </h3>
