@@ -91,7 +91,7 @@
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
-### 4. [插入注释](#insert_note)
+### 4. [插入笔记](#insert_note)
 
 <img src="doc/en_us/copyNpaste.gif" width="400" align="right">
 
