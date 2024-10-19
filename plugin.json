@@ -2,7 +2,7 @@
   "name": "siyuan-graph",
   "author": "DrEgg",
   "url": "https://github.com/SteelDrEgg/siyuan-graph",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minAppVersion": "3.1.7",
   "backends": [
     "windows",

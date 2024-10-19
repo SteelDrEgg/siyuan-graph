@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.1.0 2024-10-15
+## v0.1.1 2024-10-18
+- Add error catch when ECharts preview failed loading
+- Fix readme image not showing in SiYuan marketplace
+
+## v0.1.0 2024-10-17
 
 - Add preview in dialog
 - Change icon in menu bar
